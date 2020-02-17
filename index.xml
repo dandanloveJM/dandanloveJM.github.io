@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>耿一丹的博客</title>
-    <link>http://example.org/</link>
+    <link>https://dandanlovejm.github.io/</link>
     <description>Recent content on 耿一丹的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Mon, 17 Feb 2020 00:21:01 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dandanlovejm.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My First Post</title>
-      <link>http://example.org/posts/my-first-post/</link>
+      <link>https://dandanlovejm.github.io/posts/my-first-post/</link>
       <pubDate>Mon, 17 Feb 2020 00:21:01 +0000</pubDate>
       
-      <guid>http://example.org/posts/my-first-post/</guid>
-      <description>我的文章标题 大家好 </description>
+      <guid>https://dandanlovejm.github.io/posts/my-first-post/</guid>
+      <description>我的文章标题 大家好 我改了一下超链接这下你可以看到我吗 </description>
     </item>
     
   </channel>
