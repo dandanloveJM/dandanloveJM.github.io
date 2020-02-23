@@ -97,11 +97,14 @@
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
       <a href="https://dandanlovejm.github.io/posts/my-first-post/" class="link black dim">
-        My First Post
+        Java包与Maven包管理
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      我的文章标题 大家好 我改了一下超链接这下你可以看到我吗 
+      Java包和Maven包管理 什么是Java包管理中的“包”？ JVM的工作流程是：
+ 执行一个类的字节码 如果这个过程中碰到了新的类，就加载它, 再回到第一步 那么，去哪里加载这些类? 答案是通过类路径去寻找  类路径 classpath 类的全限定类名（⽬录层级）唯⼀确定了⼀个类 比如要找&rsquo;com.github.java.cat'类，就要去com文件夹下的github文件夹下的java文件夹下的cat类 JVM 在classpath中寻找所有的类；类似的，在命令行里敲的程序，也是在PATH变量里找程序 而Jar包就是把许多类放在⼀起的压缩包
+传递性依赖 我们自己依赖的类还会依赖其他第三方的类，所以classpath一般会很长
+同名类带来的噩梦 类的唯一标识就是全限定类名 在很长很长的classpath中，如果两个jar包里有同名的类，那么JVM会用谁？ 答案是谁在前面就用谁 
     </div>
   </div>
 </div>
