@@ -34,7 +34,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://dandanlovejm.github.io/posts/" />
-<meta property="og:updated_time" content="2020-02-17T00:21:01+00:00" />
+<meta property="og:updated_time" content="2020-02-23T00:21:01+00:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -104,7 +104,12 @@
       Java包和Maven包管理 什么是Java包管理中的“包”？ JVM的工作流程是：
  执行一个类的字节码 如果这个过程中碰到了新的类，就加载它, 再回到第一步 那么，去哪里加载这些类? 答案是通过类路径去寻找  类路径 classpath 类的全限定类名（⽬录层级）唯⼀确定了⼀个类 比如要找&rsquo;com.github.java.cat'类，就要去com文件夹下的github文件夹下的java文件夹下的cat类 JVM 在classpath中寻找所有的类；类似的，在命令行里敲的程序，也是在PATH变量里找程序 而Jar包就是把许多类放在⼀起的压缩包
 传递性依赖 我们自己依赖的类还会依赖其他第三方的类，所以classpath一般会很长
-同名类带来的噩梦 类的唯一标识就是全限定类名 在很长很长的classpath中，如果两个jar包里有同名的类，那么JVM会用谁？ 答案是谁在前面就用谁 
+同名类带来的噩梦 类的唯一标识就是全限定类名 在很长很长的classpath中，如果两个jar包里有同名的类，那么JVM会用谁？ 答案是谁在前面就用谁 比如说在classpath中有这样两个路径，两个jar包的版本不一样，但是其中包含同样的类名。 因为1.0版本在2.0版本之前，所以JVM会默认用1.0版本里的类，但问题是实际上我们需要用2.0版本里的类，怎么办呢？ 这就需要用到包管理
+什么是包管理 包管理的本质就是告诉JVM如何找到所需要的第三方类库以及成功地解决包冲突问题
+Maven包管理 Maven远远不止包管理
+Maven的两套仓库  中央仓库，按照一定的约定存储包 默认是在repo1.maven.org/maven2网址下 在国内可以配置镜像中央仓库  &lt;repositories&gt; &lt;repository&gt; &lt;id&gt;alimaven&lt;/id&gt; &lt;name&gt;aliyun maven&lt;/name&gt; &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt; &lt;/repository&gt; &lt;/repositories&gt; 本地仓库 默认位于~/.m2 下载的第三方包放在这里缓存  Maven对包的约定 按照约定为所有的包编号，⽅便检索，类似于图书馆找书 有三个约定：groupId/artifactId/version
+语义化版本约定 1.2.3 第一个号是主版本号 第二个号是次版本号 第三个号是修bug号 2.10.1 &gt; 2.8.3 &gt; 1.9.5
+Maven如何解决包冲突  传递性依赖的自动管理原则： 绝对不允许最终的classpath出现同名不同版本的jar包 依赖冲突的解决原则： 最近的胜出 假设我们的项目依赖了A包和D包，而A包依赖了B包，B包依赖了C1包 D包依赖了C2包. C1包和C2包名字相同，但版本不同，由于Maven绝对不允许最终的classpath出现同名不同版本的jar包 在面对两个同名的包中，Maven会自动选择离项目更近的那一个包 在图中，C2包比C1包更近，所以Maven会选择C2包 所以生成的classpath就是A:B:D:C2, C1被淘汰  命令行查看依赖： mvn dependency:tree 还可以重定向到文本文件中，方便搜索和查看
     </div>
   </div>
 </div>
