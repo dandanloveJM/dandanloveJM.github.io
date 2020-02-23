@@ -25,7 +25,7 @@
 Maven包管理 Maven远远不止包管理
 Maven的两套仓库  中央仓库，按照一定的约定存储包 默认是在repo1.maven.org/maven2网址下 在国内可以配置镜像中央仓库  &amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; 本地仓库 默认位于~/.m2 下载的第三方包放在这里缓存  Maven对包的约定 按照约定为所有的包编号，⽅便检索，类似于图书馆找书 有三个约定：groupId/artifactId/version
 语义化版本约定 1.2.3 第一个号是主版本号 第二个号是次版本号 第三个号是修bug号 2.10.1 &amp;gt; 2.8.3 &amp;gt; 1.9.5
-Maven如何解决包冲突  传递性依赖的自动管理原则： 绝对不允许最终的classpath出现同名不同版本的jar包 依赖冲突的解决原则： 最近的胜出 假设我们的项目依赖了A包和D包，而A包依赖了B包，B包依赖了C1包 D包依赖了C2包. C1包和C2包名字相同，但版本不同，由于Maven绝对不允许最终的classpath出现同名不同版本的jar包 在面对两个同名的包中，Maven会自动选择离项目更近的那一个包 在图中，C2包比C1包更近，所以Maven会选择C2包 所以生成的classpath就是A:B:D:C2, C1被淘汰  命令行查看依赖： mvn dependency:tree 还可以重定向到文本文件中，方便搜索和查看</description>
+常见的包冲突报错  AbstractMethodError NoClassDefFoundError ClassNotFoundException LinkageError  Maven如何解决包冲突  传递性依赖的自动管理原则： 绝对不允许最终的classpath出现同名不同版本的jar包 依赖冲突的解决原则： 最近的胜出 假设我们的项目依赖了A包和D包，而A包依赖了B包，B包依赖了C1包 D包依赖了C2包.</description>
     </item>
     
   </channel>
